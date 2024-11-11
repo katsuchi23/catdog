@@ -34,13 +34,13 @@ class CatDogCNN(nn.Module):
             nn.MaxPool2d(2), # dimension [batch_size, out_channel, 64, 64]
             
             # Second Convolutional Block
-            nn.Conv2d(in_channels=self.first_out_channels, out_channels=self.first_out_channels*2, kernel_size=3, padding=1), # dimension [batch_size, out_channel, 32, 32]
+            nn.Conv2d(in_channels=self.first_out_channels, out_channels=self.first_out_channels*2, kernel_size=3, padding=1), # dimension [batch_size, out_channel, 64, 64]
             nn.ReLU(),
             nn.BatchNorm2d(self.first_out_channels*2),
             nn.MaxPool2d(2), # dimension [batch_size, out_channel*2, 32, 32]
             
             # Third Convolutional Block
-            nn.Conv2d(in_channels=self.first_out_channels*2, out_channels=self.first_out_channels*4, kernel_size=3, padding=1), # dimension [batch_size, out_channel, 16, 16]
+            nn.Conv2d(in_channels=self.first_out_channels*2, out_channels=self.first_out_channels*4, kernel_size=3, padding=1), # dimension [batch_size, out_channel, 32, 32]
             nn.ReLU(),
             nn.BatchNorm2d(self.first_out_channels*4),
             nn.MaxPool2d(2), # dimension [batch_size, out_channel*4, 16, 16]
