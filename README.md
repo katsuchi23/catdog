@@ -21,4 +21,4 @@ In order to produce the same result, please run **model.py** for cat and dog, an
 Additional file:
 1. Submission.csv
 2. GridSearchResults.csv for all grid search result for catdog model
-3. cifer10-gridsearch
+3. cifer10-gridsearch for all grid search result for cifer10 model
