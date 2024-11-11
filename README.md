@@ -13,6 +13,10 @@ Final_Image contains all images of model training, such as
 4. CatDog-gridsearch: Result of all grid search for cat and dog (please refer to finetune.ipynb for more information)
 5. cifer10-gridsearch: Result of all grid search for cifer10 (please refer to cifer10.ipynb for more information)
 6. cifer10-testing: Result of all model architecture testing for cifer 10 (please refer to cifer 10 for more information)
+7. UnbalancedDataset: Result on cifer10 model with unbalanced training dataset
+8. FocalLoss: Result on cifer10 model with Focal Loss to handle unbalanced training dataset (not used as it is not good enough)
+9. Class-WeightedLoss: Result on cifer10 model with Class-Weighted Loss to handle unbalanced training dataset
+10. Image-Aug: Result on cifer10 model with Image Augmentation to handle unbalanced training dataset
 
 Please refer to **finetune.ipynb** to see all fine tuning and model testing for cat vs dog and **cifer10.ipynb** for all mode architecture testing and fine tune for cifer10
 
