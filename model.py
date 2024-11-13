@@ -34,13 +34,13 @@ class CatDogCNN(nn.Module):
             nn.MaxPool2d(2), # dimension [batch_size, out_channel, 64, 64]
             
             # Second Convolutional Block
-            nn.Conv2d(in_channels=self.first_out_channels, out_channels=self.first_out_channels*2, kernel_size=3, padding=1), # dimension [batch_size, out_channel, 64, 64]
+            nn.Conv2d(in_channels=self.first_out_channels, out_channels=self.first_out_channels*2, kernel_size=3, padding=1), # dimension [batch_size, out_channel, 32, 32]
             nn.ReLU(),
             nn.BatchNorm2d(self.first_out_channels*2),
             nn.MaxPool2d(2), # dimension [batch_size, out_channel*2, 32, 32]
             
             # Third Convolutional Block
-            nn.Conv2d(in_channels=self.first_out_channels*2, out_channels=self.first_out_channels*4, kernel_size=3, padding=1), # dimension [batch_size, out_channel, 32, 32]
+            nn.Conv2d(in_channels=self.first_out_channels*2, out_channels=self.first_out_channels*4, kernel_size=3, padding=1), # dimension [batch_size, out_channel, 16, 16]
             nn.ReLU(),
             nn.BatchNorm2d(self.first_out_channels*4),
             nn.MaxPool2d(2), # dimension [batch_size, out_channel*4, 16, 16]
@@ -446,28 +446,28 @@ if __name__ == '__main__':
         device=device
     )
 
-    # # 9. Save Model (Optional)
-    # save_path = 'cnnmodel'
+    # 9. Save Model (Optional)
+    save_path = 'cnnmodel'
 
-    # torch.save(model.state_dict(), save_path)
-    # print(f"Model state saved to: {save_path}")
+    torch.save(model.state_dict(), save_path)
+    print(f"Model state saved to: {save_path}")
 
-    # # 10. Load the Model
-    # load_path = 'cnnmodel'
+    # 10. Load the Model
+    load_path = 'cnnmodel'
 
-    # state_dict = torch.load(load_path)
-    # model.load_state_dict(state_dict)
-    # print(f"Model state loaded from: {load_path}")
+    state_dict = torch.load(load_path)
+    model.load_state_dict(state_dict)
+    print(f"Model state loaded from: {load_path}")
 
-    # # 11. Submission Evaluation
-    # DATASET_FOLDER = 'datasets/test'
-    # results = predict_test_images(model, DATASET_FOLDER, device)
+    # 11. Submission Evaluation
+    DATASET_FOLDER = 'datasets/test'
+    results = predict_test_images(model, DATASET_FOLDER, device)
 
-    #  # Display first few predictions
-    # print("\nFirst few predictions:")
-    # print(results.head())
-    # print(f"\nTotal images processed: {len(results)}")
+     # Display first few predictions
+    print("\nFirst few predictions:")
+    print(results.head())
+    print(f"\nTotal images processed: {len(results)}")
     
-    # # Display label distribution
-    # print("\nLabel distribution:")
-    # print(results['label'].value_counts())
+    # Display label distribution
+    print("\nLabel distribution:")
+    print(results['label'].value_counts())
